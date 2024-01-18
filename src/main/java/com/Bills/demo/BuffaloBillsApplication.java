@@ -15,7 +15,7 @@ public class BuffaloBillsApplication {
 		// Get the BillsServiceLayer bean from the application context
 		BillsServiceLayer billsService = context.getBean(BillsServiceLayer.class);				//.run(BuffaloBillsApplication.class, args)
 				//.getBean(BillsServiceLayer.class);
-//jjj
+//g
 		// Add Josh Allen to the database
 		//billsService.addJoshAllenToDatabase();
 		//billsService.addTyrodTaylorToDatabase();
