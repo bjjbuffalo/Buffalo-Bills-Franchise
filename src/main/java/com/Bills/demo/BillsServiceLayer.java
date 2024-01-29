@@ -95,6 +95,6 @@ int enteredYear;
          int touchdownsComparison = Integer.parseInt(qb.getTouchdowns()) - Integer.parseInt(qbTwo.getTouchdowns());
         System.out.println("Difference: "+touchdownsComparison);
 
-
+//testing
     }}
 
