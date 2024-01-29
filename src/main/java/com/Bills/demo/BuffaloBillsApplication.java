@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.Scanner;
+
 
 @SpringBootApplication
 public class BuffaloBillsApplication {
@@ -20,8 +22,36 @@ public class BuffaloBillsApplication {
 		//billsService.addJoshAllenToDatabase();
 		//billsService.addTyrodTaylorToDatabase();
 
-		billsService.findQBByYear();
-		billsService.compareQBs();
+		//billsService.findQBByYear();
+		//billsService.compareQBs();
+		Scanner scanner = new Scanner(System.in);
+		boolean exit = false;
+
+		do {
+			System.out.println("Enter 1 to view stats, 2 to compare QBs, or 0 to exit:");
+
+			int choice = scanner.nextInt();
+
+			switch (choice) {
+				case 1:
+					billsService.findQBByYear();
+					break;
+				case 2:
+					billsService.compareQBs();
+					break;
+				case 0:
+					exit = true;
+					System.out.println("Exiting...");
+					break;
+				default:
+					System.out.println("Invalid choice. Try again.");
+			}
+
+		} while (!exit);
+
+		scanner.close();
+	}
+}
 
 
 		//Create Configuration  (No need since we are using application.properties
@@ -38,9 +68,9 @@ public class BuffaloBillsApplication {
 		//BillsServiceLayer qb1= new BillsServiceLayer();
 		//qbd.addJoshAllenToDatabase();
 
-	}
 
-}
+
+
 
 
 
