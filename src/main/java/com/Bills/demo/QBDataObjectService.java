@@ -9,12 +9,14 @@ import jakarta.persistence.*;
 @Table(name = "billsqb")
 public class QBDataObjectService {
 
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "id")
-    //private int id;
+    //table billsqb managed in mysql workbench with Year as Primary Key
+
+
+
+    // ***Will need to fix variables so they reflect the correct type***  Stored as String for temporary workaround due to mysql workbench version issue
 @Id
     @Column(name = "Year")
-    private String year;
+    private String retrievingYear;
 
     @Column(name = "Player")
     private String player;
@@ -45,7 +47,7 @@ public class QBDataObjectService {
 
     public QBDataObjectService(String year, String player, String attempts, String completions, String completionPercentage,
                                String yards, String interceptions, String touchdowns, String rating) {
-        this.year = year;
+        this.retrievingYear = year;
         this.player = player;
         this.attempts = attempts;
         this.completions = completions;
@@ -59,11 +61,11 @@ public class QBDataObjectService {
 
 
     public String getYear() {
-        return year;
+        return retrievingYear;
     }
 
     public void setYear(String year) {
-        this.year = year;
+        this.retrievingYear = year;
     }
 
     public String getPlayer() {

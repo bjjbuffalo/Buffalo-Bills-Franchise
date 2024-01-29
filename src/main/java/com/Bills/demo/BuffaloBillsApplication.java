@@ -21,6 +21,7 @@ public class BuffaloBillsApplication {
 		//billsService.addTyrodTaylorToDatabase();
 
 		billsService.findQBByYear();
+		billsService.compareQBs();
 
 
 		//Create Configuration  (No need since we are using application.properties
