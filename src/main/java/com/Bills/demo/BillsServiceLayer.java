@@ -90,11 +90,30 @@ int enteredYear;
         QBDataObjectService qb = qbRepository.retrievingYear(String.valueOf(yearOne));
         QBDataObjectService qbTwo = qbRepository.retrievingYear(String.valueOf(yearTwo));
         System.out.println("______________________________________________________");
+
+        System.out.println(qb.getPlayer()+" in "+qb.getYear()+" had a QB rating of "+qb.getRating());
+        System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+" had a QB rating of "+qbTwo.getRating());
+        System.out.println("");
+        System.out.println(qb.getPlayer()+" in "+qb.getYear()+" had a completion percentage of "+qb.getCompletionPercentage());
+        System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+" had a completion percentage of "+qbTwo.getCompletionPercentage());
+        System.out.println("");
+        System.out.println(qb.getPlayer()+" in "+qb.getYear()+" threw for "+qb.getYards()+" yards");
+        System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+ " threw for "+qbTwo.getYards()+" yards");
+        //int yardsComparison = Integer.parseInt(qb.getYards()) - Integer.parseInt(qbTwo.getYards());
+        //System.out.println("Difference: "+yardsComparison);
+        System.out.println("");
+
         System.out.println(qb.getPlayer()+" in "+qb.getYear()+" threw for "+qb.getTouchdowns()+" touchdowns");
         System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+" threw for "+qbTwo.getTouchdowns()+" touchdowns");
-         int touchdownsComparison = Integer.parseInt(qb.getTouchdowns()) - Integer.parseInt(qbTwo.getTouchdowns());
+        int touchdownsComparison = Integer.parseInt(qb.getTouchdowns()) - Integer.parseInt(qbTwo.getTouchdowns());
         System.out.println("Difference: "+touchdownsComparison);
+        System.out.println("");
 
-
+        System.out.println(qb.getPlayer()+" in "+qb.getYear()+" threw "+qb.getInterceptions()+" interceptions");
+        System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+ " threw "+qbTwo.getInterceptions()+" interceptions");
+        int interceptionComparison = Integer.parseInt(qb.getInterceptions()) - Integer.parseInt(qbTwo.getInterceptions());
+        System.out.println("Difference: "+interceptionComparison);
+        System.out.println("______________________________________________________");
+//testing
     }}
 
