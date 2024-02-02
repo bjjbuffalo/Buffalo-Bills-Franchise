@@ -1,0 +1,23 @@
+[
+    {
+      "Player": "Willmer Fowler",
+      "Year": 1960,
+      "Att": 93,
+      "Yds": 370,
+      "TD": 1,
+      "Lng": 61,
+      "Rushing_Yards_Per_Attempt": 4,
+      "Yards_Per_Game": 33.6,
+      "Fmb": 2
+    },
+    {
+      "Player": "Joe Kulbacki",
+      "Year": 1960,
+      "Att": 41,
+      "Yds": 108,
+      "TD": 1,
+      "Lng": 17,
+      "Rushing_Yards_Per_Attempt": 26,
+      "Yards_Per_Game": 77,
+      "Fmb": 4
+    }]
