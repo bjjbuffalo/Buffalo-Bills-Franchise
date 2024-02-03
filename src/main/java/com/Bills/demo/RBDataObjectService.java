@@ -70,9 +70,6 @@ import jakarta.persistence.*;
 
 
 
-
-
-
         public Integer getRetrievingYear() {
             return retrievingYear;
         }
