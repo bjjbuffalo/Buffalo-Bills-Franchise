@@ -23,21 +23,19 @@ int enteredYear;
     public void findQBByYear() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a year: ");
+        System.out.print("Enter a year between 1960 and 2022: ");
         int year = scanner.nextInt();
         enteredYear=year;
 
+//Instance of QBDataObjectService using repository to get data from specified year
         QBDataObjectService qb = qbRepository.retrievingYear(String.valueOf(year));
 
-
+// displaying all stats from given year
         if (qb != null) {
             System.out.println("--------------------------------------");
             System.out.println("QB for the year " + year + ": " + qb.getPlayer());
             System.out.println("");
             System.out.println("Statistics:");
-            // Display the entire line of stats
-            //System.out.println("Year: " + qb.getYear());
-            //System.out.println("Player: " + qb.getPlayer());
             System.out.println("Attempts: " + qb.getAttempts());
             System.out.println("Completions: " + qb.getCompletions());
             System.out.println("Completion Percentage: " + qb.getCompletionPercentage());
@@ -55,29 +53,8 @@ int enteredYear;
 
     }
 
-    //public void compareQBs() {
-        //QBDataObjectService currentQB = findQBByYear();
 
-        // Specific comparison logic for touchdowns
-       // int currentTouchdowns = Integer.parseInt(currentQBData.getTouchdowns());
-      //  int otherTouchdowns = Integer.parseInt(findQBByYear().getTouchdowns());
-
-       // Scanner scanner = new Scanner(System.in);
-
-       // System.out.print("Enter a year to compare with " + enteredYear + ": ");
-       // int newYear = scanner.nextInt();
-        //QBDataObjectService qb2 = qbRepository.retrievingYear(String.valueOf(newYear));
-        //if (qb2 != null) {
-           // System.out.println("Touchdowns: " + qb2.getTouchdowns());
-           // int touchdownsComparison = Integer.parseInt(currentQB.getTouchdowns()) - Integer.parseInt(qb2.getTouchdowns());
-           // System.out.println("result?"+touchdownsComparison);
-           // System.out.println(currentQB.getPlayer()+ " in " + enteredYear + " threw for " +);
-
-
-            //QBDataObjectService otherQBData = qbRepository.retrievingYear(String.valueOf(otherYear));
-            //int touchdownsComparison = currentTouchdowns - otherTouchdowns;
-            //System.out.println("Touchdowns Comparison: " + touchdownsComparison);
-
+//2nd option, Compare two QB's
     public void compareQBs() {
             Scanner scanner = new Scanner(System.in);
 
@@ -87,10 +64,12 @@ int enteredYear;
         System.out.print("Second year:");
         int yearTwo = scanner.nextInt();
 
+        //Fetch both years that the user selects
         QBDataObjectService qb = qbRepository.retrievingYear(String.valueOf(yearOne));
         QBDataObjectService qbTwo = qbRepository.retrievingYear(String.valueOf(yearTwo));
         System.out.println("______________________________________________________");
 
+        //display results
         System.out.println(qb.getPlayer()+" in "+qb.getYear()+" had a QB rating of "+qb.getRating());
         System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+" had a QB rating of "+qbTwo.getRating());
         System.out.println("");
@@ -99,21 +78,18 @@ int enteredYear;
         System.out.println("");
         System.out.println(qb.getPlayer()+" in "+qb.getYear()+" threw for "+qb.getYards()+" yards");
         System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+ " threw for "+qbTwo.getYards()+" yards");
-        //int yardsComparison = Integer.parseInt(qb.getYards()) - Integer.parseInt(qbTwo.getYards());
-        //System.out.println("Difference: "+yardsComparison);
         System.out.println("");
-
         System.out.println(qb.getPlayer()+" in "+qb.getYear()+" threw for "+qb.getTouchdowns()+" touchdowns");
         System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+" threw for "+qbTwo.getTouchdowns()+" touchdowns");
+       //compare touchdowns
         int touchdownsComparison = Integer.parseInt(qb.getTouchdowns()) - Integer.parseInt(qbTwo.getTouchdowns());
         System.out.println("Difference: "+touchdownsComparison);
         System.out.println("");
-
         System.out.println(qb.getPlayer()+" in "+qb.getYear()+" threw "+qb.getInterceptions()+" interceptions");
         System.out.println(qbTwo.getPlayer()+" in "+qbTwo.getYear()+ " threw "+qbTwo.getInterceptions()+" interceptions");
+       //compare interceptions
         int interceptionComparison = Integer.parseInt(qb.getInterceptions()) - Integer.parseInt(qbTwo.getInterceptions());
         System.out.println("Difference: "+interceptionComparison);
         System.out.println("______________________________________________________");
-//testing
     }}
 

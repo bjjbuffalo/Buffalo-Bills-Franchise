@@ -14,44 +14,85 @@ public class BuffaloBillsApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(BuffaloBillsApplication.class, args);
-		// Get the BillsServiceLayer bean from the application context
-		BillsServiceLayer billsService = context.getBean(BillsServiceLayer.class);				//.run(BuffaloBillsApplication.class, args)
-				//.getBean(BillsServiceLayer.class);
-//g
-		// Add Josh Allen to the database
-		//billsService.addJoshAllenToDatabase();
-		//billsService.addTyrodTaylorToDatabase();
 
-		//billsService.findQBByYear();
-		//billsService.compareQBs();
+		// Get the ServiceLayer beans from the application context
+		BillsServiceLayer billsService = context.getBean(BillsServiceLayer.class);				//.run(BuffaloBillsApplication.class, args)
+		RBServiceLayer rbServiceLayer = context.getBean(RBServiceLayer.class);
+
+
 		Scanner scanner = new Scanner(System.in);
 		boolean exit = false;
 
-		do {
-			System.out.println("Enter 1 to view stats, 2 to compare QBs, or 0 to exit:");
+		//Starting menu to choose what  stats to view for a specific position.  (Keep adding more)
+		while (true) {
+			System.out.println("-----------------------------------------------");
+			System.out.println("Please select the number corresponding with the position you would like to view");
+			System.out.println("For QB's enter: 1");
+			System.out.println("For RB's enter: 2");
+			System.out.println("Enter 0 to exit the application");
+			int choiceOne = scanner.nextInt();
 
-			int choice = scanner.nextInt();
+			if (choiceOne == 1) {
+				while (true) {
+					System.out.println("Enter 1 to view stats, 2 to compare QBs, or 0 to exit:");
+					int choice = scanner.nextInt();
+					switch (choice) {
+						case 1:
+							billsService.findQBByYear();
+							break;
+						case 2:
+							billsService.compareQBs();
+							break;
+						case 0:
+							exit = true;
+							System.out.println("Exiting...");
+							System.exit(0);
+							break;
+						default:
+							System.out.println("Invalid choice. Try again.");
+					}
 
-			switch (choice) {
-				case 1:
-					billsService.findQBByYear();
+					if (choice== 0) {
+						break; // Exit the inner loop
+					}
+				}
+				break;
+			} else if (choiceOne == 2) {
+				while (true) {
+					rbServiceLayer.findRBByYear();
 					break;
-				case 2:
-					billsService.compareQBs();
-					break;
-				case 0:
-					exit = true;
-					System.out.println("Exiting...");
-					break;
-				default:
-					System.out.println("Invalid choice. Try again.");
+				}
+
+
+			} else if (choiceOne == 0) {
+				exit = true;
+				System.out.println("Exiting...");
+				System.exit(0);
+				break;
+			} else {
+				System.out.println("Invalid choice. Try again.");
 			}
+		}
 
-		} while (!exit);
+		scanner.close(); }}
 
-		scanner.close();
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Closing the scanner after usage
 
 
 		//Create Configuration  (No need since we are using application.properties
@@ -72,22 +113,3 @@ public class BuffaloBillsApplication {
 
 
 
-
-
-
-//Want to upload Buffalo Bills Quarterbacks and the years they started.
-// Will then type a year and see who was the starter that season
-
-//Dependencies: JDBC, Hibernate, Spring Web, mySQL
-
-//create QB and Years Active Service layer class.
-//Entity, Table, Id, columns, getters, setters
-
-//Set up mySQL server
-//Set up mySQL workbench that connects to mySQL server
-//Create Database/Schema and add qb's and their dates
-
-//Create Repository
-//Create Service Layer
-
-//Configuration provided in application.properties
