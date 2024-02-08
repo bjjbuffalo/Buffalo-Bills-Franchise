@@ -20,7 +20,7 @@ public class RBServiceLayer {
 
     int enteredYear;
 
-    // Logic to find QB by year
+    // Logic to find RB by year
     public List<RBDataObjectService> findRBByYear() {
         Scanner scanner = new Scanner(System.in);
 
@@ -28,29 +28,17 @@ public class RBServiceLayer {
         int year = scanner.nextInt();
         enteredYear=year;
 
+        //Implement list as there are more than 1 rb every year
         List<RBDataObjectService> rb = rbRepository.findByYear(year);
 
 
         if (rb != null && !rb.isEmpty()) {
+            //separators for easier reading
+             System.out.println("--------------------------------------");
             System.out.println("--------------------------------------");
             System.out.println("--------------------------------------");
-            System.out.println("--------------------------------------");
 
-            // System.out.println("RB's for the year " + year + ": ");
-
-            ///////////////
-            // Print the size of the result list
-         //   System.out.println("Number of RBs: " + rb.size());
-
-// Print the RB list contents
-          //  System.out.println("RB List Contents: " + rb);
-
-// Iterate over the result list and print individual RB data
-          //  for (RBDataObjectService rbL : rb) {
-              //  System.out.println("Object Hash Code: " + System.identityHashCode(rbL));
-                // Rest of your processing
-           // }
-
+         // Loop to list statistics for EACH runningback in a given year
             for (RBDataObjectService rbL : rb) {
                 System.out.println("--------------------------------------");
                 System.out.println("Player: " + rbL.getPlayer());

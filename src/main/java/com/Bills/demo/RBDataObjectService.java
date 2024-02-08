@@ -15,13 +15,13 @@ import jakarta.persistence.*;
     @Table(name = "billsrb")
     public class RBDataObjectService {
 
-        //table billsrb managed in mysql workbench with Year as Primary Key
+        //table billsrb managed in mysql workbench
 
 
 
-        // ***Will need to fix variables so they reflect the correct type***  Stored as String for temporary workaround due to mysql workbench version issue
+        // ***Will need to fix certain variables so they reflect the correct type***  Stored as String for temporary workaround due to mysql workbench version issue
 
-
+//mapping to RB table
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
@@ -61,7 +61,7 @@ import jakarta.persistence.*;
 
 
 
-
+//Initialize attributes
         public RBDataObjectService(Integer year, String player, String rypa, String ypg, Integer fumbles,
                                    Integer yards, Integer longest, Integer touchdowns, Integer att) {
             this.year = year;
@@ -76,7 +76,7 @@ import jakarta.persistence.*;
         }
 
 
-
+//getters and setters
         public Integer getRetrievingYear() {
             return year;
         }

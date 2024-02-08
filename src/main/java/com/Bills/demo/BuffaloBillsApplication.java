@@ -56,11 +56,11 @@ public class BuffaloBillsApplication {
 						break; // Exit the inner loop
 					}
 				}
-				break; // Exiting the outer loop as the user has chosen QB
+				break;
 			} else if (choiceOne == 2) {
 				while (true) {
 					rbServiceLayer.findRBByYear();
-					break; // Exiting the outer loop as the user has chosen RB
+					break;
 				}
 
 
@@ -68,14 +68,31 @@ public class BuffaloBillsApplication {
 				exit = true;
 				System.out.println("Exiting...");
 				System.exit(0);
-				break; // Exiting the outer loop as the user chose to exit
+				break;
 			} else {
 				System.out.println("Invalid choice. Try again.");
 			}
 		}
 
 		scanner.close(); }}
-		// Closing the scanner after usage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Closing the scanner after usage
 
 
 		//Create Configuration  (No need since we are using application.properties

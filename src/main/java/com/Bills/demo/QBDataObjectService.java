@@ -14,7 +14,9 @@ public class QBDataObjectService {
 
 
     // ***Will need to fix variables so they reflect the correct type***  Stored as String for temporary workaround due to mysql workbench version issue
-@Id
+
+    //mapping to attributes and the corresponding mySQL columns
+    @Id
     @Column(name = "Year")
     private String retrievingYear;
 
@@ -45,6 +47,7 @@ public class QBDataObjectService {
     public QBDataObjectService() {
     }
 
+    //constructor for initializing attributes
     public QBDataObjectService(String year, String player, String attempts, String completions, String completionPercentage,
                                String yards, String interceptions, String touchdowns, String rating) {
         this.retrievingYear = year;
@@ -59,7 +62,7 @@ public class QBDataObjectService {
     }
 
 
-
+//getters and setters
     public String getYear() {
         return retrievingYear;
     }
