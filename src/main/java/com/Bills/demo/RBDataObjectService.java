@@ -20,9 +20,16 @@ import jakarta.persistence.*;
 
 
         // ***Will need to fix variables so they reflect the correct type***  Stored as String for temporary workaround due to mysql workbench version issue
+
+
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
+        private Long id;
+
+
         @Column(name = "Year")
-        private Integer retrievingYear;
+        private Integer year;
 
         @Column(name = "Player")
         private String player;
@@ -57,7 +64,7 @@ import jakarta.persistence.*;
 
         public RBDataObjectService(Integer year, String player, String rypa, String ypg, Integer fumbles,
                                    Integer yards, Integer longest, Integer touchdowns, Integer att) {
-            this.retrievingYear = year;
+            this.year = year;
             this.player = player;
             this.rypa = rypa;
             this.yards = yards;
@@ -71,11 +78,11 @@ import jakarta.persistence.*;
 
 
         public Integer getRetrievingYear() {
-            return retrievingYear;
+            return year;
         }
 
         public void setRetrievingYear(Integer retrievingYear) {
-            this.retrievingYear = retrievingYear;
+            this.year = retrievingYear;
         }
 
         public String getPlayer() {

@@ -23,10 +23,11 @@ int enteredYear;
     public void findQBByYear() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a year: ");
+        System.out.print("Enter a year between 1960 and 2022: ");
         int year = scanner.nextInt();
         enteredYear=year;
 
+//Instance of QBDataObjectService using repository to get data from specified year
         QBDataObjectService qb = qbRepository.retrievingYear(String.valueOf(year));
 
 
